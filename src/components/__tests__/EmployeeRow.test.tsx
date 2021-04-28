@@ -1,25 +1,36 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
 import EmployeeRow from "../EmployeeRow";
-import { mockEmployees } from "./EmployeeList.test";
+import { mockEmployees } from "../utils";
 
 beforeEach(cleanup);
 
 describe("<EmployeeRow />", () => {
   it("renders without crashing", () => {
-    const { getByText } = render(<EmployeeRow employee={mockEmployees[1]} />);
+    const { getByText } = render(
+      <Router>
+        <EmployeeRow employee={mockEmployees[1]} />
+      </Router>
+    );
     getByText(/erik banks/i);
   });
 
   it("should render a thumbnail image for each employee", () => {
     const { getByAltText } = render(
-      <EmployeeRow employee={mockEmployees[1]} />
+      <Router>
+        <EmployeeRow employee={mockEmployees[1]} />
+      </Router>
     );
     getByAltText(/erik-banks/i);
   });
 
-  it("should render the email address for each employee", () => {
-    const { getByText } = render(<EmployeeRow employee={mockEmployees[1]} />);
-    getByText(/erik.banks@example.com/i);
+  it("should render a name for each employee", () => {
+    const { getByText } = render(
+      <Router>
+        <EmployeeRow employee={mockEmployees[1]} />
+      </Router>
+    );
+    getByText(/erik banks/i);
   });
 });

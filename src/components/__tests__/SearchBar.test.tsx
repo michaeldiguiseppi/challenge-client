@@ -20,9 +20,21 @@ describe("<SearchBar />", () => {
     getByTestId(/^search-bar$/);
   });
 
-  xit("should call the autocomplete function from props when changing the input value of the search bar", () => {});
+  it("should call the autocomplete function from props when changing the input value of the search bar", () => {
+    const { getByTestId } = render(<SearchBar {...searchBarProps} />);
+    const inputEl = getByTestId(/^search-bar$/);
+    fireEvent.change(inputEl, { target: { value: "a" } });
+    expect(searchBarProps.autocomplete).toHaveBeenCalledTimes(1);
+  });
 
-  xit("should call the autocomplete function from props the same number of times as characters input to the search bar", () => {});
+  it("should call the autocomplete function from props the same number of times as characters input to the search bar", () => {
+    const { getByTestId } = render(<SearchBar {...searchBarProps} />);
+    const inputEl = getByTestId(/^search-bar$/);
+    fireEvent.change(inputEl, { target: { value: "a" } });
+    fireEvent.change(inputEl, { target: { value: "as" } });
+    fireEvent.change(inputEl, { target: { value: "ast" } });
+    expect(searchBarProps.autocomplete).toHaveBeenCalledTimes(3);
+  });
 
   it("should render a clear input button", () => {
     const { getByTestId } = render(<SearchBar {...searchBarProps} />);

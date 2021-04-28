@@ -1,7 +1,7 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
-import App, { GET_PEOPLE } from "./App";
+import Home, { GET_PEOPLE } from "../Home";
 import { JsxEmit } from "typescript";
 
 beforeEach(cleanup);
@@ -32,11 +32,11 @@ const mocks = [
   },
 ];
 
-describe("<App />", () => {
+describe("<Home />", () => {
   it("renders without crashing and shows the loading state", () => {
     const { getByText } = render(
       <MockedProvider mocks={mocks}>
-        <App />
+        <Home />
       </MockedProvider>
     );
     getByText(/loading/i);
