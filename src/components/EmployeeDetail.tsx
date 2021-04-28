@@ -1,30 +1,29 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { gql, useMutation } from "@apollo/client";
 import { Redirect } from "react-router";
 import { EmployeeContext } from "../App";
+import DisplayEmployee from "./DisplayEmployee";
+import EditEmployee from "./EditEmployee";
 
 const EmployeeDetail: React.FC = () => {
+  const [editEmployee, setEditEmployee] = useState(false);
   const { selectedEmployee } = useContext(EmployeeContext);
+
   if (!selectedEmployee) return <Redirect to="/" />;
-  const { name, picture, email } = selectedEmployee;
+
+  if (!selectedEmployee) return <Redirect to="/" />;
   return (
-    <div className="employee-detail">
-      <div className="employee-header-photo">
-        <img src={picture?.large} alt={`${name.first}-${name.last}`} />
-      </div>
-      <div className="employee-header-details">
-        <div className="employee-header-name">
-          {name.title} {name.full_name}
-        </div>
-        <div className="employee-header-buttons">
-          <button
-            type="button"
-            onClick={() => console.log("Edit button clicked")}
-          >
+    <div>
+      {editEmployee ? (
+        <EditEmployee editFinished={setEditEmployee} />
+      ) : (
+        <>
+          <button type="button" onClick={() => setEditEmployee(!editEmployee)}>
             Edit
           </button>
-        </div>
-      </div>
-      <div className="employee-contact-info">Contact: {email}</div>
+          <DisplayEmployee />
+        </>
+      )}
     </div>
   );
 };
