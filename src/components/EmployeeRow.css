@@ -1,0 +1,30 @@
+.employee-row {
+  border: 1px solid #8f8f8f;
+  border-radius: 5px;
+}
+
+.employee-row-photo {
+  padding: 15px;
+}
+
+.employee-row-photo img {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #8f8f8f;
+}
+
+.employee-row-top-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.employee-row-bottom-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
