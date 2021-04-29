@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 import type { Employee } from "./types";
@@ -59,12 +59,6 @@ const EditEmployee: React.FC<EditEmployeeProps> = ({
   const [email, setEmail] = useState(employee?.email);
   const [title, setTitle] = useState(employee?.name.title);
 
-  //Refs
-  const firstNameRef = useRef<HTMLInputElement>(null);
-  const lastNameRef = useRef<HTMLInputElement>(null);
-  const titleRef = useRef<HTMLSelectElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
-
   return (
     <div className="employee-edit-detail">
       <form
@@ -94,7 +88,6 @@ const EditEmployee: React.FC<EditEmployeeProps> = ({
               </div>
               <div className="input-holder">
                 <select
-                  ref={titleRef}
                   defaultValue={title}
                   name="titleField"
                   onChange={e => setTitle(e.target.value)}
@@ -113,7 +106,6 @@ const EditEmployee: React.FC<EditEmployeeProps> = ({
               </div>
               <div className="input-holder">
                 <input
-                  ref={firstNameRef}
                   value={first}
                   type="text"
                   name="firstNameField"
@@ -128,7 +120,6 @@ const EditEmployee: React.FC<EditEmployeeProps> = ({
               </div>
               <div className="input-holder">
                 <input
-                  ref={lastNameRef}
                   value={last}
                   type="text"
                   name="lastNameField"
@@ -144,7 +135,6 @@ const EditEmployee: React.FC<EditEmployeeProps> = ({
               <div className="input-holder">
                 <input
                   type="email"
-                  ref={emailRef}
                   value={email}
                   name="emailField"
                   onChange={e => setEmail(e.target.value)}

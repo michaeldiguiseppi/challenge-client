@@ -29,6 +29,8 @@ const Home: React.FC = () => {
   const [searchValue, setSearchValue] = useState("");
   const [people, setPeople] = useState<Employee[]>([]);
   const { loading, error, data } = useQuery(GET_PEOPLE, {
+    // For some reason, when this isn't set to no-cache, i only get one user repeated 100 times.
+    // Possibly due to the IDs being null from the server.
     fetchPolicy: "no-cache",
   });
 
