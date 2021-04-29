@@ -1,7 +1,6 @@
-import React, { useContext, useRef, useState, useEffect } from "react";
-import { Redirect } from "react-router";
+import React, { useRef, useState, useEffect } from "react";
 import { gql, useMutation } from "@apollo/client";
-import { EmployeeContext } from "../App";
+import type { Employee } from "./types";
 
 export const EDIT_EMPLOYEE = gql`
   mutation EditPerson($email: String!, $payload: EditPerson) {
@@ -30,36 +29,34 @@ export enum Titles {
   MADAME = "Madame",
 }
 
-type Props = {
+export type EditEmployeeProps = {
   editFinished: (finished: boolean) => void;
+  employee: Employee;
 };
 
-const EditEmployee: React.FC<Props> = ({ editFinished }) => {
-  const { selectedEmployee, selectEmployee } = useContext(EmployeeContext);
+const EditEmployee: React.FC<EditEmployeeProps> = ({
+  editFinished,
+  employee,
+}) => {
   const [editEmployee, { data }] = useMutation(EDIT_EMPLOYEE);
 
   useEffect(() => {
     if (data) {
-      const { first, last } = data.editPerson.name;
-      data.editPerson.name.full_name = `${first} ${last}`;
-      selectEmployee(data.editPerson);
       editFinished(false);
     }
   }, [data]);
 
   //State
-  const [first, setFirst] = useState(selectedEmployee?.name.first);
-  const [last, setLast] = useState(selectedEmployee?.name.last);
-  const [email, setEmail] = useState(selectedEmployee?.email);
-  const [title, setTitle] = useState(selectedEmployee?.name.title);
+  const [first, setFirst] = useState(employee?.name.first);
+  const [last, setLast] = useState(employee?.name.last);
+  const [email, setEmail] = useState(employee?.email);
+  const [title, setTitle] = useState(employee?.name.title);
 
   //Refs
   const firstNameRef = useRef<HTMLInputElement>(null);
   const lastNameRef = useRef<HTMLInputElement>(null);
   const titleRef = useRef<HTMLSelectElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
-
-  if (!selectedEmployee) return null;
 
   return (
     <div className="employee-edit-detail">
@@ -68,7 +65,7 @@ const EditEmployee: React.FC<Props> = ({ editFinished }) => {
           e.preventDefault();
           editEmployee({
             variables: {
-              email: selectedEmployee.email,
+              email: employee.email,
               payload: {
                 title,
                 first,
@@ -80,7 +77,7 @@ const EditEmployee: React.FC<Props> = ({ editFinished }) => {
         }}
       >
         <div className="employee-edit-header-photo">
-          <img src={selectedEmployee.picture?.large} alt={`${first}-${last}`} />
+          <img src={employee.picture?.large} alt={`${first}-${last}`} />
         </div>
         <div className="employee-edit-header-details">
           <div className="employee-edit-header-name">
@@ -91,7 +88,9 @@ const EditEmployee: React.FC<Props> = ({ editFinished }) => {
               onChange={e => setTitle(e.target.value)}
             >
               {Object.values(Titles).map(title => (
-                <option value={title}>{title}</option>
+                <option value={title} key={title}>
+                  {title}
+                </option>
               ))}
             </select>
             First:{" "}
@@ -99,12 +98,14 @@ const EditEmployee: React.FC<Props> = ({ editFinished }) => {
               ref={firstNameRef}
               value={first}
               onChange={e => setFirst(e.target.value)}
+              data-testid="edit-employee-first-name"
             />
             Last:{" "}
             <input
               ref={lastNameRef}
               value={last}
               onChange={e => setLast(e.target.value)}
+              data-testid="edit-employee-last-name"
             />
           </div>
         </div>
@@ -114,6 +115,7 @@ const EditEmployee: React.FC<Props> = ({ editFinished }) => {
             ref={emailRef}
             value={email}
             onChange={e => setEmail(e.target.value)}
+            data-testid="edit-employee-email"
           />
         </div>
         <button type="submit">Save</button>

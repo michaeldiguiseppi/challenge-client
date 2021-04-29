@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditEmployee /> renders without crashing 1`] = `
+<div>
+  <div
+    class="employee-edit-detail"
+  >
+    <form>
+      <div
+        class="employee-edit-header-photo"
+      >
+        <img
+          alt="Niclas-Stornes"
+        />
+      </div>
+      <div
+        class="employee-edit-header-details"
+      >
+        <div
+          class="employee-edit-header-name"
+        >
+          Title:
+           
+          <select>
+            <option
+              selected=""
+              value="Mr"
+            >
+              Mr
+            </option>
+            <option
+              value="Ms"
+            >
+              Ms
+            </option>
+            <option
+              value="Mrs"
+            >
+              Mrs
+            </option>
+            <option
+              value="Miss"
+            >
+              Miss
+            </option>
+            <option
+              value="Monsieur"
+            >
+              Monsieur
+            </option>
+            <option
+              value="Madame"
+            >
+              Madame
+            </option>
+          </select>
+          First:
+           
+          <input
+            data-testid="edit-employee-first-name"
+            value="Niclas"
+          />
+          Last:
+           
+          <input
+            data-testid="edit-employee-last-name"
+            value="Stornes"
+          />
+        </div>
+      </div>
+      <div
+        class="employee-edit-contact-info"
+      >
+        Email:
+         
+        <input
+          data-testid="edit-employee-email"
+          value="niclas.stornes@example.com"
+        />
+      </div>
+      <button
+        type="submit"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;

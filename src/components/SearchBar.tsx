@@ -1,4 +1,5 @@
 import React from "react";
+import "./stylesheets/SearchBar.css";
 
 export type SearchBarProps = {
   autocomplete: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -15,6 +16,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
     <input
       data-testid="search-bar"
       className="search-bar-field"
+      placeholder="Search employees by first or last name..."
       onChange={e => autocomplete(e)}
       value={value}
     />

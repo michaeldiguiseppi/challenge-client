@@ -2,7 +2,6 @@ import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
 import Home, { GET_PEOPLE } from "../Home";
-import { JsxEmit } from "typescript";
 
 beforeEach(cleanup);
 

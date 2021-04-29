@@ -3,7 +3,6 @@ export type Employee = {
     first: string;
     last: string;
     title?: string;
-    full_name: string;
   };
   email?: string;
   picture?: {

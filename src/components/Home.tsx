@@ -34,8 +34,6 @@ const Home: React.FC = () => {
     if (data) {
       setPeople(data.people);
       data.people.map((person: Employee, index: number) => {
-        person.name &&
-          (person.name.full_name = `${person?.name?.first} ${person?.name?.last}`);
         person.id = (index + 1).toString();
         return person;
       });
@@ -55,8 +53,9 @@ const Home: React.FC = () => {
       if (
         person &&
         person.name &&
-        person.name.full_name &&
-        person.name.full_name
+        person.name.first &&
+        person.name.last &&
+        `${person.name.first} ${person.name.last}`
           .toLowerCase()
           .includes(event.target.value.toLowerCase())
       ) {
@@ -70,14 +69,15 @@ const Home: React.FC = () => {
   if (error) return <h2>Error: {error.message}</h2>;
 
   return (
-    <div className="Home">
-      <h3>Employee Directory</h3>
-      <SearchBar
-        clearInput={clearInput}
-        autocomplete={autocomplete}
-        value={searchValue}
-      />
-      <EmployeeList employees={people} />
+    <div className="home-container">
+      <div className="home-content">
+        <SearchBar
+          clearInput={clearInput}
+          autocomplete={autocomplete}
+          value={searchValue}
+        />
+        <EmployeeList employees={people} />
+      </div>
     </div>
   );
 };

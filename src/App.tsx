@@ -1,10 +1,9 @@
 import React, { useState, createContext } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Home from "./components/Home";
 import EmployeeDetail from "./components/EmployeeDetail";
 import type { Employee } from "./components/types";
+import "./App.css";
 
 export type EmployeeContextType = {
   selectEmployee: (employee: Employee) => void;
@@ -27,32 +26,23 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <EmployeeContext.Provider value={{ selectedEmployee, selectEmployee }}>
-        <div className="navbar">
-          <div className="navbar-container">
-            <div className="navbar-link">
-              {selectedEmployee ? (
-                <Link
-                  to="/"
-                  className="back-button"
-                  onClick={() => selectEmployee(undefined)}
-                >
-                  <FontAwesomeIcon icon={faArrowLeft} />
-                </Link>
-              ) : null}
-            </div>
-          </div>
+      <div className="navbar-container">
+        <nav className="navbar">
+          <Link to="/" className="navbar-link">
+            Home
+          </Link>
+          <div className="navbar-title">Employee Directory</div>
+        </nav>
 
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/people/:person">
-              <EmployeeDetail />
-            </Route>
-          </Switch>
-        </div>
-      </EmployeeContext.Provider>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/people/:person">
+            <EmployeeDetail />
+          </Route>
+        </Switch>
+      </div>
     </Router>
   );
 };
