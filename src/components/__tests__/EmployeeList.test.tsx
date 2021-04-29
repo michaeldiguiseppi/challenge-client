@@ -8,11 +8,12 @@ beforeEach(cleanup);
 
 describe("<EmployeeList />", () => {
   it("renders without crashing", () => {
-    render(
+    const { container } = render(
       <Router>
         <EmployeeList employees={mockEmployees} />
       </Router>
     );
+    expect(container).toMatchSnapshot();
   });
 
   it("should render a list of employees", () => {

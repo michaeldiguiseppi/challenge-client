@@ -12,7 +12,8 @@ const searchBarProps: SearchBarProps = {
 
 describe("<SearchBar />", () => {
   it("renders without crashing", () => {
-    render(<SearchBar {...searchBarProps} />);
+    const { container } = render(<SearchBar {...searchBarProps} />);
+    expect(container).toMatchSnapshot();
   });
 
   it("should render a search bar", () => {

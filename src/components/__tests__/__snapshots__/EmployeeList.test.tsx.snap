@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EmployeeList /> renders without crashing 1`] = `
+<div>
+  <div
+    class="employee-list-container"
+  >
+    <a
+      href="/people/niclas.stornes%40example.com"
+    >
+      <div
+        class="employee-row"
+        data-testid="employee-row"
+      >
+        <div
+          class="employee-row-top-container"
+        >
+          <div
+            class="employee-row-photo"
+          >
+            <img
+              alt="Niclas-Stornes"
+              src="https://randomuser.me/api/portraits/thumb/men/78.jpg"
+            />
+          </div>
+          <div
+            class="employee-row-name"
+          >
+            Mr. Niclas Stornes
+          </div>
+        </div>
+      </div>
+    </a>
+    <a
+      href="/people/erik.banks%40example.com"
+    >
+      <div
+        class="employee-row"
+        data-testid="employee-row"
+      >
+        <div
+          class="employee-row-top-container"
+        >
+          <div
+            class="employee-row-photo"
+          >
+            <img
+              alt="Erik-Banks"
+              src="https://randomuser.me/api/portraits/thumb/men/67.jpg"
+            />
+          </div>
+          <div
+            class="employee-row-name"
+          >
+            Mr. Erik Banks
+          </div>
+        </div>
+      </div>
+    </a>
+    <a
+      href="/people/andrea.crespo%40example.com"
+    >
+      <div
+        class="employee-row"
+        data-testid="employee-row"
+      >
+        <div
+          class="employee-row-top-container"
+        >
+          <div
+            class="employee-row-photo"
+          >
+            <img
+              alt="Andrea-Crespo"
+              src="https://randomuser.me/api/portraits/thumb/women/41.jpg"
+            />
+          </div>
+          <div
+            class="employee-row-name"
+          >
+            Mrs. Andrea Crespo
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+`;

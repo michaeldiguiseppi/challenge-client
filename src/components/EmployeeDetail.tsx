@@ -4,6 +4,8 @@ import { useParams } from "react-router";
 import DisplayEmployee from "./DisplayEmployee";
 import EditEmployee from "./EditEmployee";
 import "./stylesheets/EditAndDisplayEmployee.css";
+import Loading from "./Loading";
+import Error from "./Error";
 
 export const GET_PERSON = gql`
   query getPerson($email: String!) {
@@ -38,8 +40,8 @@ const EmployeeDetail: React.FC = () => {
     refetch();
   }, [editEmployee, refetch]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <Loading />;
+  if (error) return <Error error={error.message} />;
 
   return (
     <div className="employee-detail">

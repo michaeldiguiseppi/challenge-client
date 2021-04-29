@@ -8,12 +8,13 @@ beforeEach(cleanup);
 
 describe("<EmployeeRow />", () => {
   it("renders without crashing", () => {
-    const { getByText } = render(
+    const { getByText, container } = render(
       <Router>
         <EmployeeRow employee={mockEmployees[1]} />
       </Router>
     );
     getByText(/erik banks/i);
+    expect(container).toMatchSnapshot();
   });
 
   it("should render a thumbnail image for each employee", () => {

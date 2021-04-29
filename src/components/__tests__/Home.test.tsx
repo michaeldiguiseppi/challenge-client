@@ -38,6 +38,6 @@ describe("<Home />", () => {
         <Home />
       </MockedProvider>
     );
-    getByText(/loading/i);
+    getByText(/Please wait while your data is loaded/i);
   });
 });

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchBar /> renders without crashing 1`] = `
+<div>
+  <div
+    class="search-bar-container"
+  >
+    <input
+      class="search-bar-field"
+      data-testid="search-bar"
+      placeholder="Search employees by first or last name..."
+      value=""
+    />
+    <button
+      class="search-bar-clear-button"
+      data-testid="search-bar-clear-button"
+      type="reset"
+    >
+      Clear
+    </button>
+  </div>
+</div>
+`;

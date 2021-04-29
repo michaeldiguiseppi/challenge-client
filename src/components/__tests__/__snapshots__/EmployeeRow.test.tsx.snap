@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EmployeeRow /> renders without crashing 1`] = `
+<div>
+  <a
+    href="/people/erik.banks%40example.com"
+  >
+    <div
+      class="employee-row"
+      data-testid="employee-row"
+    >
+      <div
+        class="employee-row-top-container"
+      >
+        <div
+          class="employee-row-photo"
+        >
+          <img
+            alt="Erik-Banks"
+            src="https://randomuser.me/api/portraits/thumb/men/67.jpg"
+          />
+        </div>
+        <div
+          class="employee-row-name"
+        >
+          Mr. Erik Banks
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+`;

@@ -4,6 +4,8 @@ import "./stylesheets/Home.css";
 import EmployeeList from "./EmployeeList";
 import SearchBar from "./SearchBar";
 import type { Employee } from "./types";
+import Loading from "./Loading";
+import Error from "./Error";
 
 export const GET_PEOPLE = gql`
   query GetPeople {
@@ -65,8 +67,8 @@ const Home: React.FC = () => {
     });
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <h2>Error: {error.message}</h2>;
+  if (loading) return <Loading />;
+  if (error) return <Error error={error.message} />;
 
   return (
     <div className="home-container">
