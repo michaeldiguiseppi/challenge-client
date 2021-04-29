@@ -1,10 +1,10 @@
 .home-container {
   display: flex;
   margin-top: 10px;
+  width: 100%;
 }
 
 .home-content {
   display: flex;
   flex-direction: column;
-  width: 100%;
 }

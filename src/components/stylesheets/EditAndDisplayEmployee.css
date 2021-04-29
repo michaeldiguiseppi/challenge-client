@@ -1,0 +1,64 @@
+.employee-display-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  border: 1px solid white;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  min-width: 575px;
+}
+
+.employee-detail {
+  display: flex;
+  margin-top: 25px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.edit-button {
+  width: 100px;
+  background: transparent;
+  border-radius: 25px;
+  color: red;
+  border: 1px solid red;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  position: relative;
+  top: 35px;
+  right: -225px;
+}
+
+.edit-button:hover {
+  background: rgba(255, 0, 0, 0.25);
+}
+
+.employee-display-header-photo img {
+  border-radius: 50%;
+  margin: 15px;
+  border: 1px solid white;
+}
+
+.employee-display-header-details {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.employee-display-header-name {
+  font-size: 2em;
+  display: flex;
+}
+
+.employee-display-contact-info {
+  color: white;
+  display: flex;
+}

@@ -39,16 +39,6 @@ img {
 }
 
 body {
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-body {
   font-family: "Montserrat", sans-serif;
   background-color: #111;
 }

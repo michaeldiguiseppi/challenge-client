@@ -1,9 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
-import { gql, useMutation, useQuery } from "@apollo/client";
-import { Redirect, useParams } from "react-router";
-// import { EmployeeContext } from "../App";
+import React, { useState, useEffect } from "react";
+import { gql, useQuery } from "@apollo/client";
+import { useParams } from "react-router";
 import DisplayEmployee from "./DisplayEmployee";
 import EditEmployee from "./EditEmployee";
+import "./stylesheets/EditAndDisplayEmployee.css";
 
 export const GET_PERSON = gql`
   query getPerson($email: String!) {
@@ -36,18 +36,22 @@ const EmployeeDetail: React.FC = () => {
 
   useEffect(() => {
     refetch();
-  }, [editEmployee]);
+  }, [editEmployee, refetch]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
+    <div className="employee-detail">
       {editEmployee ? (
         <EditEmployee editFinished={setEditEmployee} employee={data?.person} />
       ) : (
         <>
-          <button type="button" onClick={() => setEditEmployee(!editEmployee)}>
+          <button
+            className="edit-button"
+            type="button"
+            onClick={() => setEditEmployee(!editEmployee)}
+          >
             Edit
           </button>
           <DisplayEmployee employee={data?.person} />

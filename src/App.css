@@ -3,29 +3,37 @@
   margin: 10px;
   padding: 10px;
   height: 50px;
-  background: #8ac0ff;
+  background: #2960a0;
   border-radius: 25px;
   flex-direction: column;
+  align-items: flex-start;
+}
+
+.navbar-title {
+  display: flex;
+  font-size: 1.5em;
+  font-style: italic;
+  font-variant: small-caps;
 }
 
 .navbar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-}
-
-.navbar-title {
-  display: flex;
-  font-size: 2em;
 }
 
 .navbar-link {
   color: white;
   width: 150px;
   height: 30px;
-  background: #333;
+  background: transparent;
+  border: 1px solid white;
+  margin-left: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 25px;
+}
+
+.navbar-link:hover {
+  background: rgba(255, 255, 255, 0.3);
 }

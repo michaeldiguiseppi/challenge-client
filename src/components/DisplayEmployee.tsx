@@ -1,5 +1,6 @@
 import React from "react";
 import type { Employee } from "./types";
+import "./stylesheets/EditAndDisplayEmployee.css";
 
 type Props = {
   employee: Employee;
@@ -16,8 +17,8 @@ const DisplayEmployee: React.FC<Props> = ({ employee }) => {
         <div className="employee-display-header-name">
           {`${name.title} ${name.first} ${name.last}`}
         </div>
+        <div className="employee-display-contact-info">Contact: {email}</div>
       </div>
-      <div className="employee-display-contact-info">Contact: {email}</div>
     </div>
   );
 };

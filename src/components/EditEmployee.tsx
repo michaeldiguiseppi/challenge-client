@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { gql, useMutation } from "@apollo/client";
+import { useHistory } from "react-router-dom";
 import type { Employee } from "./types";
+import "./stylesheets/EditAndDisplayEmployee.css";
 
 export const EDIT_EMPLOYEE = gql`
   mutation EditPerson($email: String!, $payload: EditPerson) {
@@ -38,13 +40,18 @@ const EditEmployee: React.FC<EditEmployeeProps> = ({
   editFinished,
   employee,
 }) => {
+  const history = useHistory();
   const [editEmployee, { data }] = useMutation(EDIT_EMPLOYEE);
 
   useEffect(() => {
     if (data) {
+      // Only replace the route if the email changes
+      if (data.editPerson.email !== employee.email) {
+        history.replace(`/people/${encodeURIComponent(data.editPerson.email)}`);
+      }
       editFinished(false);
     }
-  }, [data]);
+  }, [data, editFinished, history]);
 
   //State
   const [first, setFirst] = useState(employee?.name.first);
@@ -81,10 +88,11 @@ const EditEmployee: React.FC<EditEmployeeProps> = ({
         </div>
         <div className="employee-edit-header-details">
           <div className="employee-edit-header-name">
-            Title:{" "}
+            <label htmlFor="titleField">Title: </label>
             <select
               ref={titleRef}
               defaultValue={title}
+              name="titleField"
               onChange={e => setTitle(e.target.value)}
             >
               {Object.values(Titles).map(title => (
@@ -93,27 +101,30 @@ const EditEmployee: React.FC<EditEmployeeProps> = ({
                 </option>
               ))}
             </select>
-            First:{" "}
+            <label htmlFor="firstNameField">First: </label>
             <input
               ref={firstNameRef}
               value={first}
+              name="firstNameField"
               onChange={e => setFirst(e.target.value)}
               data-testid="edit-employee-first-name"
             />
-            Last:{" "}
+            <label htmlFor="lastNameField">Last: </label>
             <input
               ref={lastNameRef}
               value={last}
+              name="lastNameField"
               onChange={e => setLast(e.target.value)}
               data-testid="edit-employee-last-name"
             />
           </div>
         </div>
         <div className="employee-edit-contact-info">
-          Email:{" "}
+          <label htmlFor="emailField">Email: </label>
           <input
             ref={emailRef}
             value={email}
+            name="emailField"
             onChange={e => setEmail(e.target.value)}
             data-testid="edit-employee-email"
           />

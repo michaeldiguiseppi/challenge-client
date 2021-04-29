@@ -11,6 +11,17 @@
   background-color: #d0f2ff;
 }
 
+.employee-row:hover {
+  background-color: rgba(208, 242, 255, 0.5);
+}
+
+.employee-row-top-container {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .employee-row-photo {
   padding: 5px;
 }

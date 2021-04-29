@@ -21,12 +21,12 @@ exports[`<DisplayEmployee /> renders without crashing 1`] = `
       >
         Mr Erik Banks
       </div>
-    </div>
-    <div
-      class="employee-display-contact-info"
-    >
-      Contact: 
-      erik.banks@example.com
+      <div
+        class="employee-display-contact-info"
+      >
+        Contact: 
+        erik.banks@example.com
+      </div>
     </div>
   </div>
 </div>

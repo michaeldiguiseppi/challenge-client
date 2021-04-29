@@ -1,50 +1,29 @@
-import React, { useState, createContext } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import EmployeeDetail from "./components/EmployeeDetail";
-import type { Employee } from "./components/types";
 import "./App.css";
 
-export type EmployeeContextType = {
-  selectEmployee: (employee: Employee) => void;
-  selectedEmployee: Employee | undefined;
-};
+const App: React.FC = () => (
+  <Router>
+    <div className="navbar-container">
+      <nav className="navbar">
+        <div className="navbar-title">Employee Directory</div>
+        <Link to="/" className="navbar-link">
+          Home
+        </Link>
+      </nav>
 
-export const EmployeeContext = createContext<EmployeeContextType>({
-  selectEmployee: () => {},
-  selectedEmployee: undefined,
-});
-
-const App: React.FC = () => {
-  const [selectedEmployee, setSelectedEmployee] = useState<
-    Employee | undefined
-  >(undefined);
-
-  const selectEmployee = (employee?: Employee) => {
-    setSelectedEmployee(employee);
-  };
-
-  return (
-    <Router>
-      <div className="navbar-container">
-        <nav className="navbar">
-          <Link to="/" className="navbar-link">
-            Home
-          </Link>
-          <div className="navbar-title">Employee Directory</div>
-        </nav>
-
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/people/:person">
-            <EmployeeDetail />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
-};
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/people/:person">
+          <EmployeeDetail />
+        </Route>
+      </Switch>
+    </div>
+  </Router>
+);
 
 export default App;
