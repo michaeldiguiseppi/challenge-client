@@ -51,7 +51,7 @@ const EditEmployee: React.FC<EditEmployeeProps> = ({
       }
       editFinished(false);
     }
-  }, [data, editFinished, history]);
+  }, [data, editFinished, history, employee]);
 
   //State
   const [first, setFirst] = useState(employee?.name.first);
@@ -115,6 +115,7 @@ const EditEmployee: React.FC<EditEmployeeProps> = ({
                 <input
                   ref={firstNameRef}
                   value={first}
+                  type="text"
                   name="firstNameField"
                   onChange={e => setFirst(e.target.value)}
                   data-testid="edit-employee-first-name"
@@ -129,6 +130,7 @@ const EditEmployee: React.FC<EditEmployeeProps> = ({
                 <input
                   ref={lastNameRef}
                   value={last}
+                  type="text"
                   name="lastNameField"
                   onChange={e => setLast(e.target.value)}
                   data-testid="edit-employee-last-name"
@@ -141,6 +143,7 @@ const EditEmployee: React.FC<EditEmployeeProps> = ({
               </div>
               <div className="input-holder">
                 <input
+                  type="email"
                   ref={emailRef}
                   value={email}
                   name="emailField"

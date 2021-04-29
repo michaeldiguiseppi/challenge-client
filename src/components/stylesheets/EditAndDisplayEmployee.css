@@ -125,6 +125,8 @@
   width: 200px;
   height: 30px;
   outline: none;
+  border: 1px solid white;
+  border-radius: 2px;
 }
 
 .employee-edit-header-name {
