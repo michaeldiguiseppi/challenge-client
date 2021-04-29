@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DisplayEmployee /> renders without crashing 1`] = `
+<div>
+  <div
+    class="employee-display-detail"
+  >
+    <div
+      class="employee-display-header-photo"
+    >
+      <img
+        alt="Erik-Banks"
+        src="https://randomuser.me/api/portraits/men/67.jpg"
+      />
+    </div>
+    <div
+      class="employee-display-header-details"
+    >
+      <div
+        class="employee-display-header-name"
+      >
+        Mr Erik Banks
+      </div>
+    </div>
+    <div
+      class="employee-display-contact-info"
+    >
+      Contact: 
+      erik.banks@example.com
+    </div>
+  </div>
+</div>
+`;

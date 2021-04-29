@@ -1,0 +1,21 @@
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar-field {
+  height: 40px;
+  border-radius: 25px;
+  margin: 10px;
+  width: 80%;
+  border: 1px solid #333;
+  outline: none;
+  text-align: center;
+}
+
+.search-bar-clear-button {
+  position: relative;
+  left: -60px;
+  background-color: transparent;
+  border: none;
+}

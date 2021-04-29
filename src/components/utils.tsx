@@ -6,7 +6,6 @@ export const mockEmployees: Employee[] = [
       first: "Niclas",
       last: "Stornes",
       title: "Mr",
-      full_name: "Niclas Stornes",
     },
     email: "niclas.stornes@example.com",
     picture: {
@@ -19,7 +18,6 @@ export const mockEmployees: Employee[] = [
       first: "Erik",
       last: "Banks",
       title: "Mr",
-      full_name: "Erik Banks",
     },
     email: "erik.banks@example.com",
     picture: {
@@ -34,7 +32,6 @@ export const mockEmployees: Employee[] = [
       first: "Andrea",
       last: "Crespo",
       title: "Mrs",
-      full_name: "Andrea Crespo",
     },
     email: "andrea.crespo@example.com",
     picture: {
