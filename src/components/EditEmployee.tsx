@@ -88,48 +88,74 @@ const EditEmployee: React.FC<EditEmployeeProps> = ({
         </div>
         <div className="employee-edit-header-details">
           <div className="employee-edit-header-name">
-            <label htmlFor="titleField">Title: </label>
-            <select
-              ref={titleRef}
-              defaultValue={title}
-              name="titleField"
-              onChange={e => setTitle(e.target.value)}
-            >
-              {Object.values(Titles).map(title => (
-                <option value={title} key={title}>
-                  {title}
-                </option>
-              ))}
-            </select>
-            <label htmlFor="firstNameField">First: </label>
-            <input
-              ref={firstNameRef}
-              value={first}
-              name="firstNameField"
-              onChange={e => setFirst(e.target.value)}
-              data-testid="edit-employee-first-name"
-            />
-            <label htmlFor="lastNameField">Last: </label>
-            <input
-              ref={lastNameRef}
-              value={last}
-              name="lastNameField"
-              onChange={e => setLast(e.target.value)}
-              data-testid="edit-employee-last-name"
-            />
+            <div className="employee-edit-header-title">
+              <div className="label-holder">
+                <label htmlFor="titleField">Title: </label>
+              </div>
+              <div className="input-holder">
+                <select
+                  ref={titleRef}
+                  defaultValue={title}
+                  name="titleField"
+                  onChange={e => setTitle(e.target.value)}
+                >
+                  {Object.values(Titles).map(title => (
+                    <option value={title} key={title}>
+                      {title}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="employee-edit-header-first">
+              <div className="label-holder">
+                <label htmlFor="firstNameField">First: </label>
+              </div>
+              <div className="input-holder">
+                <input
+                  ref={firstNameRef}
+                  value={first}
+                  name="firstNameField"
+                  onChange={e => setFirst(e.target.value)}
+                  data-testid="edit-employee-first-name"
+                />
+              </div>
+            </div>
+            <div className="employee-edit-header-last">
+              <div className="label-holder">
+                <label htmlFor="lastNameField">Last: </label>
+              </div>
+              <div className="input-holder">
+                <input
+                  ref={lastNameRef}
+                  value={last}
+                  name="lastNameField"
+                  onChange={e => setLast(e.target.value)}
+                  data-testid="edit-employee-last-name"
+                />
+              </div>
+            </div>
+            <div className="employee-edit-header-email">
+              <div className="label-holder">
+                <label htmlFor="emailField">Email: </label>
+              </div>
+              <div className="input-holder">
+                <input
+                  ref={emailRef}
+                  value={email}
+                  name="emailField"
+                  onChange={e => setEmail(e.target.value)}
+                  data-testid="edit-employee-email"
+                />
+              </div>
+            </div>
+            <div className="save-button-container">
+              <button type="submit" className="save-button">
+                Save
+              </button>
+            </div>
           </div>
         </div>
-        <div className="employee-edit-contact-info">
-          <label htmlFor="emailField">Email: </label>
-          <input
-            ref={emailRef}
-            value={email}
-            name="emailField"
-            onChange={e => setEmail(e.target.value)}
-            data-testid="edit-employee-email"
-          />
-        </div>
-        <button type="submit">Save</button>
       </form>
     </div>
   );
