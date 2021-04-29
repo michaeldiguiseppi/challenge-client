@@ -89,6 +89,7 @@ exports[`<EditEmployee /> renders without crashing 1`] = `
               <input
                 data-testid="edit-employee-first-name"
                 name="firstNameField"
+                type="text"
                 value="Niclas"
               />
             </div>
@@ -111,6 +112,7 @@ exports[`<EditEmployee /> renders without crashing 1`] = `
               <input
                 data-testid="edit-employee-last-name"
                 name="lastNameField"
+                type="text"
                 value="Stornes"
               />
             </div>
@@ -133,6 +135,7 @@ exports[`<EditEmployee /> renders without crashing 1`] = `
               <input
                 data-testid="edit-employee-email"
                 name="emailField"
+                type="email"
                 value="niclas.stornes@example.com"
               />
             </div>
