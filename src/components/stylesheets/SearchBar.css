@@ -13,9 +13,22 @@
   text-align: center;
 }
 
+.search-bar-field:focus::placeholder {
+  color: transparent;
+}
+
 .search-bar-clear-button {
   position: relative;
-  left: -60px;
+  left: -75px;
+  top: 15px;
+  width: 50px;
+  height: 30px;
+  border-radius: 25px;
   background-color: transparent;
   border: none;
+}
+
+.search-bar-clear-button:hover {
+  border: 1px solid #111;
+  cursor: pointer;
 }

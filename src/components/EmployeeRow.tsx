@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import type { Employee } from "./types";
 import { Link } from "react-router-dom";
-// import { EmployeeContext } from "../App";
 import "./stylesheets/EmployeeRow.css";
 
 type Props = {
